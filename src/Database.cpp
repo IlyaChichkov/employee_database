@@ -26,6 +26,11 @@ namespace ERS {
     }
 
     void Database::displayAll() const {
+        if(m_employees.empty())
+        {
+            std::cout << "Database is empty." << std::endl;
+            return;
+        }
         for(auto& employee : m_employees)
         {
             employee.display();
@@ -33,6 +38,11 @@ namespace ERS {
     }
 
     void Database::displayCurrent() const {
+        if(m_employees.empty())
+        {
+            std::cout << "Empty display result." << std::endl;
+            return;
+        }
         for(auto& employee : m_employees)
         {
             if(employee.isHired())
@@ -43,6 +53,11 @@ namespace ERS {
     }
 
     void Database::displayFormer() const {
+        if(m_employees.empty())
+        {
+            std::cout << "Empty display result." << std::endl;
+            return;
+        }
         for(auto& employee : m_employees)
         {
             if(!employee.isHired())
