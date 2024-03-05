@@ -4,6 +4,8 @@
 
 #include "Database.h"
 
+using namespace ERS::HR;
+
 namespace ERS {
     Employee &Database::addEmployee(const std::string &firstName, const std::string &lastName) {
         Employee employee(firstName, lastName);

@@ -4,7 +4,7 @@
 
 #include "Employee.h"
 
-namespace ERS {
+namespace ERS::HR {
 
     Employee::Employee(const std::string &firstName, const std::string &lastName) {
         m_firstName = firstName;

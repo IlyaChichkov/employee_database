@@ -15,15 +15,15 @@ namespace ERS {
 
     class Database {
     public:
-        Employee& addEmployee(const std::string& firstName, const std::string& lastName);
-        Employee& getEmployee(int employeeNumber);
+        HR::Employee& addEmployee(const std::string& firstName, const std::string& lastName);
+        HR::Employee& getEmployee(int employeeNumber);
 
         void displayAll() const;
         void displayCurrent() const;
         void displayFormer() const;
 
     private:
-        std::vector<Employee> m_employees;
+        std::vector<HR::Employee> m_employees;
         int m_nextEmployeeNumber = c_FirstEmployeeNumber;
     };
 

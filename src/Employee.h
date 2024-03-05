@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-namespace ERS {
+namespace ERS::HR {
 
     const int c_DefaultStartingSalary = 30'000;
     const int c_DefaultRaiseAndDemeritAmount = 1'000;
