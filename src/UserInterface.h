@@ -8,7 +8,15 @@
 namespace ERS {
 
     class UserInterface {
+    public:
+        void displayMainMenu();
+        void getMainMenuInput();
 
+        void displayHire();
+        void getHireInput();
+
+        void displayFire();
+        void getFireInput();
     };
 
 } // ERS
