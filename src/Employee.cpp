@@ -29,8 +29,9 @@ namespace ERS::HR {
 
     void Employee::display() const {
         std::cout << "> Employee:" << std::endl;
-        std::cout << "  First name: " << getFirstName() << "  last name: " << getLastName() << std::endl;
+        std::cout << "  " << getFirstName() << " " << getLastName() << std::endl;
         std::cout << "  Employee number: " << getEmployeeNumber() << std::endl;
+        std::cout << "  Title: " << getTitleString() << std::endl;
         std::cout << "  Salary: " << getSalary() << std::endl;
         std::cout << "  Is hired: " << (isHired() ? "True" : "False") << std::endl;
     }
@@ -69,5 +70,28 @@ namespace ERS::HR {
 
     bool Employee::isHired() const {
         return m_hired;
+    }
+
+    void Employee::setTitle(Title newTitle) {
+        m_title = newTitle;
+    }
+
+    Title Employee::getTitle() const {
+        return m_title;
+    }
+
+    const std::string Employee::getTitleString() const {
+        switch (m_title) {
+            case Title::None:
+                return "None";
+            case Title::Manager:
+                return "Manager";
+            case Title::Engineer:
+                return "Engineer";
+            case Title::SeniorEngineer:
+                return "SeniorEngineer";
+            default:
+                return "Title not found.";
+        };
     }
 } // ERS
