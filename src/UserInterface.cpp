@@ -31,7 +31,6 @@ namespace ERS {
             switch(selectedOption)
             {
                 case 0:
-                    m_database
                     isDone = true;
                     break;
                 case 1:
