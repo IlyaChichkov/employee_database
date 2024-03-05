@@ -19,6 +19,7 @@ namespace ERS {
         cout << "5) List all employees      " << endl;
         cout << "6) List current employees  " << endl;
         cout << "7) List former employees   " << endl;
+        cout << "7) Set employee a new title" << endl;
         cout << "0) Quit                    " << endl;
     }
 
@@ -59,6 +60,10 @@ namespace ERS {
                     break;
                 case 7:
                     m_database->displayFormer();
+                    displayMainMenu();
+                    break;
+                case 8:
+                    displayTitleChange();
                     displayMainMenu();
                     break;
                 default:
@@ -237,6 +242,58 @@ namespace ERS {
                     if(confirmInput == 'Y')
                     {
                         m_database->getEmployee(employee_number).demote(demote_amount);
+                    }
+                    displayMainMenu();
+                    isDone = true;
+                    break;
+                default:
+                    std::cerr << "Unknown step." << endl;
+                    break;
+            }
+        }
+    }
+
+    void UserInterface::displayTitleChange() {
+        cout << "       Title Change        " << endl;
+        cout << "---------------------------" << endl;
+
+        getTitleChangeInput();
+    }
+
+    void UserInterface::getTitleChangeInput() {
+        int employee_number = 0;
+        int title = 0;
+        char confirmInput = 'Y';
+        int step = 0;
+        bool isDone = false;
+        while (!isDone)
+        {
+            switch(step)
+            {
+                case 0:
+                    cout << "Enter employee number:" << endl;
+                    cin >> employee_number;
+                    step = 1;
+                    break;
+                case 1:
+                    cout << "Enter new title:" << endl;
+                    cout << "1) Manager" << endl;
+                    cout << "2) Engineer" << endl;
+                    cout << "3) Senior Engineer" << endl;
+                    cout << "0) None" << endl;
+                    cin >> title;
+                    step = 2;
+                    break;
+                case 2:
+                    cout << "Confirm employee demote (Y/n):" << endl;
+                    m_database->getEmployee(employee_number).display();
+                    cin >> confirmInput;
+                    step = 3;
+                    break;
+                case 3:
+                    if(confirmInput == 'Y')
+                    {
+                        m_database->getEmployee(employee_number).setTitle(static_cast<HR::Title>(title));
                     }
                     displayMainMenu();
                     isDone = true;
