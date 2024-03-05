@@ -13,6 +13,13 @@ namespace ERS::HR {
     const int c_DefaultStartingSalary = 30'000;
     const int c_DefaultRaiseAndDemeritAmount = 1'000;
 
+    enum class Title {
+        None,
+        Manager,
+        Engineer,
+        SeniorEngineer
+    };
+
     class Employee {
     public:
         Employee(const std::string& firstName,
@@ -29,6 +36,10 @@ namespace ERS::HR {
         void setLastName(const std::string& lastName);
         const std::string& getLastName() const;
 
+        void setTitle(Title newTitle);
+        Title getTitle() const;
+        const std::string getTitleString() const;
+
         void setEmployeeNumber(int employeeNumber);
         int getEmployeeNumber() const;
 
@@ -43,6 +54,7 @@ namespace ERS::HR {
         int m_employeeNumber = -1;
         int m_salary = c_DefaultStartingSalary;
         bool m_hired = false;
+        Title m_title = Title::None;
     };
 
 } // ERS
