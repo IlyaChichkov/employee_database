@@ -5,6 +5,11 @@
 #ifndef UNTITLED_USERINTERFACE_H
 #define UNTITLED_USERINTERFACE_H
 
+#include <iostream>
+#include <vector>
+#include "Employee.h"
+#include "Database.h"
+
 namespace ERS {
 
     class UserInterface {
