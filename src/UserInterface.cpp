@@ -18,8 +18,6 @@ namespace ERS {
         cout << "4) List current employees  " << endl;
         cout << "5) List former employees   " << endl;
         cout << "0) Quit                    " << endl;
-
-        getMainMenuInput();
     }
 
     void UserInterface::getMainMenuInput() {
@@ -35,11 +33,11 @@ namespace ERS {
                     break;
                 case 1:
                     displayHire();
-                    isDone = true;
+                    displayMainMenu();
                     break;
                 case 2:
                     displayFire();
-                    isDone = true;
+                    displayMainMenu();
                     break;
                 case 3:
                     m_database->displayAll();
@@ -89,7 +87,6 @@ namespace ERS {
                     step = 2;
                     break;
                 case 2:
-                    displayMainMenu();
                     isDone = true;
                     break;
                 default:

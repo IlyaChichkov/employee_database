@@ -13,6 +13,7 @@ int main() {
     userInterface.setDatabase(std::make_shared<ERS::Database>(database));
 
     userInterface.displayMainMenu();
+    userInterface.getMainMenuInput();
 
     return 0;
 }
