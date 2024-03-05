@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 #include "Employee.h"
 #include "Database.h"
 
@@ -22,6 +23,11 @@ namespace ERS {
 
         void displayFire();
         void getFireInput();
+
+        void setDatabase(std::shared_ptr<Database> database);
+
+    private:
+        std::shared_ptr<Database> m_database;
     };
 
 } // ERS
