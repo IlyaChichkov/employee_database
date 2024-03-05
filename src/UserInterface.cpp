@@ -180,11 +180,10 @@ namespace ERS {
                     step = 2;
                     break;
                 case 2:
-                    cout << "Confirm employee firing (Y/n):" << endl;
+                    cout << "Confirm employee promote (Y/n):" << endl;
                     m_database->getEmployee(employee_number).display();
                     cin >> confirmInput;
                     step = 3;
-                    isDone = true;
                     break;
                 case 3:
                     if(confirmInput == 'Y')
@@ -229,11 +228,10 @@ namespace ERS {
                     step = 2;
                     break;
                 case 2:
-                    cout << "Confirm employee firing (Y/n):" << endl;
+                    cout << "Confirm employee demote (Y/n):" << endl;
                     m_database->getEmployee(employee_number).display();
                     cin >> confirmInput;
                     step = 3;
-                    isDone = true;
                     break;
                 case 3:
                     if(confirmInput == 'Y')
