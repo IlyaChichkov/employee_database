@@ -19,7 +19,7 @@ namespace ERS {
         cout << "5) List all employees      " << endl;
         cout << "6) List current employees  " << endl;
         cout << "7) List former employees   " << endl;
-        cout << "7) Set employee a new title" << endl;
+        cout << "8) Set employee a new title" << endl;
         cout << "0) Quit                    " << endl;
     }
 
