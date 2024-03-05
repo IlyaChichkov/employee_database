@@ -24,6 +24,12 @@ namespace ERS {
         void displayFire();
         void getFireInput();
 
+        void displayPromote();
+        void getPromoteInput();
+
+        void displayDemote();
+        void getDemoteInput();
+
         void setDatabase(std::shared_ptr<Database> database);
 
     private:

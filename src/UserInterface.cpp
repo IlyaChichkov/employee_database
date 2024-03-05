@@ -14,9 +14,11 @@ namespace ERS {
         cout << "---------------------------" << endl;
         cout << "1) Hire a new employee     " << endl;
         cout << "2) Fire an employee        " << endl;
-        cout << "3) List all employees      " << endl;
-        cout << "4) List current employees  " << endl;
-        cout << "5) List former employees   " << endl;
+        cout << "3) Promote an employee     " << endl;
+        cout << "4) Demote an employee      " << endl;
+        cout << "5) List all employees      " << endl;
+        cout << "6) List current employees  " << endl;
+        cout << "7) List former employees   " << endl;
         cout << "0) Quit                    " << endl;
     }
 
@@ -40,14 +42,22 @@ namespace ERS {
                     displayMainMenu();
                     break;
                 case 3:
-                    m_database->displayAll();
+                    displayPromote();
                     displayMainMenu();
                     break;
                 case 4:
-                    m_database->displayCurrent();
+                    displayDemote();
                     displayMainMenu();
                     break;
                 case 5:
+                    m_database->displayAll();
+                    displayMainMenu();
+                    break;
+                case 6:
+                    m_database->displayCurrent();
+                    displayMainMenu();
+                    break;
+                case 7:
                     m_database->displayFormer();
                     displayMainMenu();
                     break;
@@ -140,5 +150,103 @@ namespace ERS {
 
     void UserInterface::setDatabase(std::shared_ptr<Database> database) {
         m_database = database;
+    }
+
+    void UserInterface::displayPromote() {
+        cout << "         Promote           " << endl;
+        cout << "---------------------------" << endl;
+
+        getPromoteInput();
+    }
+
+    void UserInterface::getPromoteInput() {
+        int employee_number = 0;
+        int rise_amount = 0;
+        char confirmInput = 'Y';
+        int step = 0;
+        bool isDone = false;
+        while (!isDone)
+        {
+            switch(step)
+            {
+                case 0:
+                    cout << "Enter employee number:" << endl;
+                    cin >> employee_number;
+                    step = 1;
+                    break;
+                case 1:
+                    cout << "Enter raise amount:" << endl;
+                    cin >> rise_amount;
+                    step = 2;
+                    break;
+                case 2:
+                    cout << "Confirm employee firing (Y/n):" << endl;
+                    m_database->getEmployee(employee_number).display();
+                    cin >> confirmInput;
+                    step = 3;
+                    isDone = true;
+                    break;
+                case 3:
+                    if(confirmInput == 'Y')
+                    {
+                        m_database->getEmployee(employee_number).promote(rise_amount);
+                    }
+                    displayMainMenu();
+                    isDone = true;
+                    break;
+                default:
+                    std::cerr << "Unknown step." << endl;
+                    break;
+            }
+        }
+    }
+
+    void UserInterface::displayDemote() {
+        cout << "          Demote           " << endl;
+        cout << "---------------------------" << endl;
+
+        getDemoteInput();
+    }
+
+    void UserInterface::getDemoteInput() {
+        int employee_number = 0;
+        int demote_amount = 0;
+        char confirmInput = 'Y';
+        int step = 0;
+        bool isDone = false;
+        while (!isDone)
+        {
+            switch(step)
+            {
+                case 0:
+                    cout << "Enter employee number:" << endl;
+                    cin >> employee_number;
+                    step = 1;
+                    break;
+                case 1:
+                    cout << "Enter demote amount:" << endl;
+                    cin >> demote_amount;
+                    step = 2;
+                    break;
+                case 2:
+                    cout << "Confirm employee firing (Y/n):" << endl;
+                    m_database->getEmployee(employee_number).display();
+                    cin >> confirmInput;
+                    step = 3;
+                    isDone = true;
+                    break;
+                case 3:
+                    if(confirmInput == 'Y')
+                    {
+                        m_database->getEmployee(employee_number).demote(demote_amount);
+                    }
+                    displayMainMenu();
+                    isDone = true;
+                    break;
+                default:
+                    std::cerr << "Unknown step." << endl;
+                    break;
+            }
+        }
     }
 } // ERS
