@@ -30,6 +30,9 @@ namespace ERS {
         void displayDemote();
         void getDemoteInput();
 
+        void displayTitleChange();
+        void getTitleChangeInput();
+
         void setDatabase(std::shared_ptr<Database> database);
 
     private:
