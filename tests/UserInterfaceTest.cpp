@@ -10,4 +10,12 @@
 TEST_CASE( "UserInterfaceTest", "[userInterface]" ) {
     ERS::UserInterface userInterface;
 
+    SECTION( "Check empty database display current message" ) {
+        auto stdoutBuffer = std::cout.rdbuf();
+        std::ostringstream oss;
+        std::cout.rdbuf(oss.rdbuf());
+        userInterface.displayMainMenu();
+        std::cout.rdbuf(stdoutBuffer);
+        REQUIRE(oss.str().substr(0, 28) == "     Employee Database     \n");
+    }
 }
