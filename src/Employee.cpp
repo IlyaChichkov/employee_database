@@ -37,6 +37,7 @@ namespace ERS::HR {
     }
 
     void Employee::setFirstName(const std::string &firstName) {
+        firstName = "None";
         m_firstName = firstName;
     }
 
