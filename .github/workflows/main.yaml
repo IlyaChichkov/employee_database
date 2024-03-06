@@ -46,6 +46,6 @@ jobs:
           meson compile
 
       - name: Run tests
-        run:
+        run: |
           ls
           ./unit_tests
