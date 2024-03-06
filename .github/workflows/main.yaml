@@ -12,6 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Build application
+        run:
+          pip3 install meson
+
       - name: Build application
         run:
           meson setup build
