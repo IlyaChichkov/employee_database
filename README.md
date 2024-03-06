@@ -1,5 +1,7 @@
 # Employee Database
 
+![tests_badge](https://github.com/IlyaChichkov/employee_database/actions/workflows/main.yaml/badge.svg)
+
 Small console application written on C++ for educational purposes.
 
 ## Table of contents
