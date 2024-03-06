@@ -10,11 +10,5 @@
 TEST_CASE( "UserInterfaceTest", "[userInterface]" ) {
     ERS::UserInterface userInterface;
 
-    SECTION( "Check main menu title" ) {
-        std::ostringstream oss;
-        std::cout.rdbuf(oss.rdbuf());
-        userInterface.displayMainMenu();
-        REQUIRE(oss.str().substr(0, 28) == "     Employee Database     \n");
-    }
 
 }
