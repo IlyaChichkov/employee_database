@@ -30,6 +30,21 @@ foreach file : compile_src_files
   compile_path_src += src_dir / file
 endforeach
 
-compile_path_src += 'tests/main.cpp'
-exe = executable('unit_tests', compile_path_src, include_directories : incdir, dependencies : catch_dep)
+tests_path_src = []
+foreach file : compile_src_files
+  tests_path_src += src_dir / file
+endforeach
+
+test_files = [
+    'main.cpp',
+    'EmployeeTest.cpp',
+    'DatabaseTest.cpp'
+]
+
+tests_dir = 'tests'
+foreach file : test_files
+  tests_path_src += tests_dir / file
+endforeach
+
+exe = executable('unit_tests', tests_path_src, include_directories : incdir, dependencies : catch_dep)
 test('unit_tests', exe)
