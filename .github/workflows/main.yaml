@@ -22,7 +22,7 @@ jobs:
           pip3 install meson
 
       - name: Build application
-        run:
+        run: |
           meson setup build
           cd ./build
           meson compile
