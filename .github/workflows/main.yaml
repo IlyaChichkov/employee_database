@@ -44,3 +44,7 @@ jobs:
           meson setup build
           cd ./build
           meson compile
+
+      - name: Run tests
+        run:
+          ./unit_tests.exe
