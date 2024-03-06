@@ -32,6 +32,23 @@ TEST_CASE( "DatabaseTest", "[database]" ) {
         database.displayAll();
         std::cout.rdbuf(stdoutBuffer);
         REQUIRE(oss.str() == "Database is empty.\n");
+    }
 
+    SECTION( "Check empty database display current message" ) {
+        auto stdoutBuffer = std::cout.rdbuf();
+        std::ostringstream oss;
+        std::cout.rdbuf(oss.rdbuf());
+        database.displayCurrent();
+        std::cout.rdbuf(stdoutBuffer);
+        REQUIRE(oss.str() == "Empty display result.\n");
+    }
+
+    SECTION( "Check empty database display former message" ) {
+        auto stdoutBuffer = std::cout.rdbuf();
+        std::ostringstream oss;
+        std::cout.rdbuf(oss.rdbuf());
+        database.displayFormer();
+        std::cout.rdbuf(stdoutBuffer);
+        REQUIRE(oss.str() == "Empty display result.\n");
     }
 }
