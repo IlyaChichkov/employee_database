@@ -17,9 +17,13 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Build application
+      - name: Install meson
         run:
           pip3 install meson
+
+      - name: Install catch2
+        run:
+          sudo apt install catch2 -y
 
       - name: Build application
         run: |
