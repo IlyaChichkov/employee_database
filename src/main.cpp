@@ -1,6 +1,6 @@
 #include <memory>
-#include "src/Database.h"
-#include "src/UserInterface.h"
+#include "Database.h"
+#include "UserInterface.h"
 
 using namespace std;
 

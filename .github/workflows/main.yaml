@@ -1,0 +1,48 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Meson
+        run:
+          pip3 install meson
+
+      - name: Install Ninja
+        run:
+          pip3 install ninja
+
+      - name: Checkout Catch2 v3
+        uses: actions/checkout@v4
+        with:
+          repository: catchorg/Catch2
+          ref: v3.4.0
+          path: Catch2
+
+      - name: Install Catch2 v3
+        run: |
+          mkdir Catch2/build
+          cd Catch2/build
+          cmake .. -DBUILD_TESTING=OFF
+          sudo cmake --build . --target install
+
+      - name: Build application
+        run: |
+          meson setup build
+          cd ./build
+          meson compile
+          ls
+          ./unit_tests
