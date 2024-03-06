@@ -23,7 +23,7 @@ jobs:
 
       - name: Install catch2
         run:
-          sudo apt install catch2 -y
+          vcpkg.exe install catch2
 
       - name: Build application
         run: |
