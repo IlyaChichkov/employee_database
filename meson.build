@@ -38,7 +38,8 @@ endforeach
 test_files = [
     'main.cpp',
     'EmployeeTest.cpp',
-    'DatabaseTest.cpp'
+    'DatabaseTest.cpp',
+    'UserInterfaceTest.cpp'
 ]
 
 tests_dir = 'tests'
